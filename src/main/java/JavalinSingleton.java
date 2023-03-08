@@ -13,13 +13,22 @@ public class JavalinSingleton {
      * method only needs to return a properly configured Javalin Server, represented by the 'app' object created below.
      * 
      * Note: Please refer to the "CreatingEndpoints.MD" file for more assistance if needed.
+     * @return 
+     * @return 
      */
     public static Javalin getInstance(){
         Javalin app = Javalin.create();
-        
+        //app.start(9000);
+        //Javalin app = Javalin.create().start(9000);
+
+        // HTTP GET REQUEST to http://localhost:9000/get-request
+        app.get("/hello", ctx -> {
+            System.out.println("Hello World");
+            ctx.result("Hello World");
         //write endpoint here
 
+        
+         });
         return app;
     }
-    
 }
